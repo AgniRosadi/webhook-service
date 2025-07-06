@@ -3,7 +3,7 @@ spring:
   name: webhook-service
 
 server:
-  port: 8082
+  port: ${PORT:8080}
   shutdown: graceful
   tomcat:
     connection-timeout: 5s
