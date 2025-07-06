@@ -7,3 +7,6 @@ server:
   shutdown: graceful
   tomcat:
     connection-timeout: 5s
+
+midtrans:
+  server-key: ${MIDTRANS_SERVER_KEY}

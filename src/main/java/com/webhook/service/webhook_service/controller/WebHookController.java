@@ -1,9 +1,7 @@
 package com.webhook.service.webhook_service.controller;
 
-import com.webhook.service.webhook_service.dto.PaymentWebhookRequest;
 import com.webhook.service.webhook_service.service.WebHookService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
