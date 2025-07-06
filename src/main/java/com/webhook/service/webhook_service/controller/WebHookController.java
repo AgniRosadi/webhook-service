@@ -14,9 +14,8 @@ public class WebHookController {
     private WebHookService webhookService;
 
     @PostMapping("/payment")
-    public ResponseEntity<String> handleWebhook(@RequestBody String payload, @RequestHeader HttpHeaders headers) throws Exception {
-        String signatureHeader = headers.getFirst("X-Signature");
-
+    public ResponseEntity<String> handleWebhook(@RequestBody String payload,
+                                                @RequestHeader(value = "X-Signature", required = false) String signatureHeader) {
         System.out.println("Payload diterima: " + payload);
         System.out.println("Signature dari header: " + signatureHeader);
 
@@ -28,4 +27,5 @@ public class WebHookController {
             return ResponseEntity.status(403).body("Invalid Signature");
         }
     }
+
 }
