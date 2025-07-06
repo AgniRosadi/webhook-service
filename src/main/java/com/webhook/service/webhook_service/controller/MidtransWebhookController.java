@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/webhook")
+@RequestMapping("/webhook/v2")
 public class MidtransWebhookController {
     @Autowired
     private MidtransWebhookService webhookService;
