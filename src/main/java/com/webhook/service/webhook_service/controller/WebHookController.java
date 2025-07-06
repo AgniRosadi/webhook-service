@@ -19,12 +19,17 @@ public class WebHookController {
         System.out.println("Payload diterima: " + payload);
         System.out.println("Signature dari header: " + signatureHeader);
 
-        if (webhookService.isSignatureValid(payload, signatureHeader)) {
-            System.out.println("✅ Signature valid, proses lanjut");
-            return ResponseEntity.ok("Received & Verified");
-        } else {
-            System.out.println("❌ Signature tidak valid, abaikan");
-            return ResponseEntity.status(403).body("Invalid Signature");
+        try {
+            if (webhookService.isSignatureValid(payload, signatureHeader)) {
+                System.out.println("✅ Signature valid, proses lanjut");
+                return ResponseEntity.ok("Received & Verified");
+            } else {
+                System.out.println("❌ Signature tidak valid, abaikan");
+                return ResponseEntity.status(403).body("Invalid Signature");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(500).body("Internal Server Error");
         }
     }
 
